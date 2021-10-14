@@ -1,6 +1,8 @@
 <?php 
 require 'functions.php';
 		if(isset($_POST["submit"])){ // Mengecek apakah tombol submit sudah di tekan apa belum
+				
+
 
 				if(tambah($_POST)>0) {
 					echo "
@@ -35,7 +37,7 @@ require 'functions.php';
 </head>
 <body>
 	<h1>MASUKKAN DATA MAHASISWA</h1>
-	<form action="" method="post">
+	<form action="" method="post" enctype="multipart/form-data">
 
 		<ul>
 			<li>
@@ -52,7 +54,7 @@ require 'functions.php';
 			</li>
 			<li>
 				<label for="gambar">Gambar</label>
-				<input type="text" name="gambar" id="gambar">
+				<input type="file" name="gambar" id="gambar">
 			</li>
 			<li>
 				<button type="submit" name="submit">Masukan Data</button>

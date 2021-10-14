@@ -11,18 +11,18 @@ if (isset($_POST["cari"])) {
 	$mahasiswa = cari($_POST["keyword"]);
 }
 
- ?>
+?>
 
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Daftar Mahasiswa</title>
 </head>
 <body>
-	<h1><a href="index.php">Daftar Mahasiswa</a></h1>
-	<a href="tambah.php">Tambah Data Mahasiswa</a>
+	<h1>Daftar Mahasiswa</h1>
+	<a href="tambah.php">Tambah Data Mahasiswa</a> 
 	<br>
-	<br>
+	<br> 
 	<form action="" method="post">
 		<!-- <label for="keyword"> Cari Data Mahasiswa</label> -->
 
