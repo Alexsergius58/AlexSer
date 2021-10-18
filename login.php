@@ -1,4 +1,9 @@
 <?php 
+	session_start();
+	if (isset($_SESSION["login"])) {
+		header("Location:index.php");
+		exit;
+	}
 
 		require('functions.php');	
 
@@ -23,6 +28,9 @@
 					//menggunakan fungsi password_verify() yang didalamnya ada 2 parameter. yakni password yang dikirim dari form login, dan password acak yang sudah di ecrypt di database
 					//kenapa menggunakan $row, karena row berisi data dari result
 					if(password_verify($password, $row["password"]))	{
+
+						//set session
+						$_SESSION["login"] = true;
 
 
 						header("Location:index.php");

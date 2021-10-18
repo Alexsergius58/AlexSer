@@ -1,8 +1,24 @@
 <?php 
-	
+
+	session_start();
+	if (!isset($_SESSION["login"])) {
+
+		header("Location:login.php");
+		exit;
+
+	}
+
+
+	// if (isset($_POST["logout"])) {
+	// 	header("Location:logout.php");
+	// 	exit;
+	// }
+
+
 require ('functions.php');
 
-$mahasiswa = query("SELECT * FROM mahasiswa");	
+$mahasiswa = query("SELECT * FROM mahasiswa");
+$mahasis = query("SELECT * FROM nilai");
 
 //Ketika tombol cari di tekan
 if (isset($_POST["cari"])) {
@@ -43,6 +59,7 @@ if (isset($_POST["cari"])) {
 			<th>Nama</th>
 			<th>NIM</th>
 			<th>Jurusan</th>
+			<th>Nilai</th>
 
 		</tr>
 		<?php $i=1; ?>
@@ -58,11 +75,25 @@ if (isset($_POST["cari"])) {
 			<td><?php echo $row["nama"] ?></td>
 			<td><?php echo $row["nim"] ?></td>
 			<td><?php echo $row["jurusan"] ?></td>
+
+			
+			<td><a href="nilai.php?id=<?php echo $rows["id"]; ?>">Nilai</a></td>
+			
+		
 		</tr>
 		<?php $i++; ?>
 	<?php endforeach; ?>
 
+	
+
 	</table>
+	<br><br>
+
+	<!-- <form action="" method="post">
+		<button type="button" name="logout">Logout!</button>
+	</form> -->
+
+	<a href="logout.php">Logout!</a>
 
 </body>
 </html>
