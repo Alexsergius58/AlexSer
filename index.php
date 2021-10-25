@@ -18,7 +18,7 @@
 require ('functions.php');
 
 $mahasiswa = query("SELECT * FROM mahasiswa");
-$mahasis = query("SELECT * FROM nilai");
+// $mahasis = query("SELECT * FROM nilai");
 
 //Ketika tombol cari di tekan
 if (isset($_POST["cari"])) {
@@ -59,7 +59,7 @@ if (isset($_POST["cari"])) {
 			<th>Nama</th>
 			<th>NIM</th>
 			<th>Jurusan</th>
-			<th>Nilai</th>
+			<!-- <th>Nilai</th> -->
 
 		</tr>
 		<?php $i=1; ?>
@@ -77,7 +77,7 @@ if (isset($_POST["cari"])) {
 			<td><?php echo $row["jurusan"] ?></td>
 
 			
-			<td><a href="nilai.php?id=<?php echo $rows["id"]; ?>">Nilai</a></td>
+			<!-- <td><a href="nilai.php?id=<?php echo $rows["id"]; ?>">Nilai</a></td> -->
 			
 		
 		</tr>

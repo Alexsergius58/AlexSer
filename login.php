@@ -1,5 +1,10 @@
 <?php 
 	session_start();
+		// if (isset($_COOKIE["id"]) && isset($)) {
+			
+		// }
+
+
 	if (isset($_SESSION["login"])) {
 		header("Location:index.php");
 		exit;
@@ -19,7 +24,7 @@
 
 				//cek username
 				//fungsi dari mysqli_num_rows() yaitu menghitung ada berapa baris yang dikembalikan dari quer diatas $result
-				if (mysqli_num_rows($result) === 1) {
+				if ($result && mysqli_num_rows($result) === 1) {
 
 
 						//cek password
@@ -32,6 +37,15 @@
 						//set session
 						$_SESSION["login"] = true;
 
+						//cek remember me
+						// if (isset($_POST["remember"])) {
+						// 	//buat coockie
+						// 	setcookie('id', $row["id"], time()+60);
+						// 	setcookie('key', hash('sha256', $row["username"], time()+60));
+
+
+						// }
+
 
 						header("Location:index.php");
 						exit;
@@ -42,6 +56,13 @@
 
 				$error = true;
 
+
+		} 
+
+		if (isset($_POST["regist"])){
+
+				header("Location:register.php");
+				
 
 		}
 
@@ -86,8 +107,17 @@
 				<label for="password">Password :</label>
 				<input type="password" name="password" id="password">
 			</li>
+			<!-- <li>
+				
+				<input type="checkbox" name="remember" id="remember">
+				<label for="remember">Remember me!</label>	
+			</li> -->
 			<li>
 				<button type="submit" name="login">Login</button>
+			</li>
+			<br>
+			<li>
+				<button type="submit" name="regist">Register!</button>
 			</li>
 		</ul>
 	</form>

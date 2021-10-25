@@ -22,6 +22,9 @@ if (isset($_POST['register'])) {
 
 
 }
+if (isset($_POST["loginn"])) {
+	header("Location:login.php");
+}
 
 
  ?>
@@ -59,11 +62,11 @@ if (isset($_POST['register'])) {
 			<li>
 				<button type="submit" name="register">Register!</button>
 			</li>
-
-			<!-- <li>
-				<button type="submit" name="login"><a href="login.php">Login!</a></button>
+			<br>
+			<li>
+				<button type="submit" name="loginn">Kembali ke Login</button>
 			</li>
- -->
+
 		</ul>
 	</form>
 
